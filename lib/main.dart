@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
-  var _totalScrore = 0;
+  var _totalScore = 0;
   final _questions = const [
     {
       'questionText': "Quel est votre animal préféré ?",
@@ -44,12 +44,17 @@ class _MyAppState extends State<MyApp> {
   ];
 
   void _answerQuestion(int score) {
-    _totalScrore += score;
-    setState(
-      () {
-        _questionIndex++;
-      },
-    );
+    _totalScore += score;
+    setState(() {
+      _questionIndex++;
+    });
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
   }
 
   @override
@@ -65,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
                 questionIndex: _questionIndex,
               )
-            : Result(resultScore: _totalScrore),
+            : Result(resultScore: _totalScore, resetQuiz: _resetQuiz),
       ),
     );
   }
