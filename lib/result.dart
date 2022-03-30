@@ -13,11 +13,11 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     var resultText = "Vous avez terminé";
     if (resultScore <= 10) {
-      resultText = "Vous êtes super et innocent $resultScore";
+      resultText = "Vous êtes super et innocent";
     } else if (resultScore <= 20) {
-      resultText = "Vous êtes assez sympa $resultScore";
+      resultText = "Vous êtes assez sympa";
     } else {
-      resultText = "Vous êtes le sheitan $resultScore";
+      resultText = "Vous êtes le diable";
     }
     return resultText;
   }
